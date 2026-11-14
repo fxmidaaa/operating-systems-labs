@@ -1,0 +1,21 @@
+Lab 10 Observe answers
+Cimendur Rustem, FAF-243
+
+1. Why does trace 32 grep hello README print only read?
+32 is 1 << 5, and SYS_read is 5. The dispatcher tests the bit whose position
+is the system call number. The open bit (15) and close bit (21) are zero.
+
+2. Why can different forkforkfork processes print trace lines?
+np->trace_mask = p->trace_mask; copies the parent's mask into the child in
+the fork implementation. Each child can therefore trace its own calls.
+
+3. Why is a trace line printed between hi and its newline?
+echo writes the two bytes hi and the trailing newline with separate write
+calls. The dispatcher prints after each call returns. After the first write,
+the terminal is still on the hi line, so the kernel trace follows it. After
+the second write, the newline has already moved the cursor to the next line.
+The kernel's printk output does not itself enter the user syscall dispatcher.
+
+4. Which mask selects only open and close?
+(1 << 15) | (1 << 21) = 32768 + 2097152 = 2129920.
+The verification command is: trace 2129920 grep hello README

@@ -1,6 +1,6 @@
 # Operating Systems Labs
 
-Laboratory reports and source code for Labs 1–8 of the Operating Systems course at the Technical University of Moldova.
+Laboratory reports and source code for Labs 1–10 of the Operating Systems course at the Technical University of Moldova.
 
 **Student:** Cimendur Rustem, FAF-243
 
@@ -14,6 +14,8 @@ Laboratory reports and source code for Labs 1–8 of the Operating Systems cours
 | 6 | xv6 file system, metadata and recursive search | [Report](lab6_report.docx) | [mystat.c](lab6/user/mystat.c), [find.c](lab6/user/find.c) |
 | 7 | Linux processes, redirection and pipes | [Report](lab7_report.docx) | [C programs and experiment notes](lab7/) |
 | 8 | xv6 processes, pingpong and a prime filtering pipeline | [Report](lab8_report.docx) | [Programs, Makefile and build instructions](lab8/), [Observe answers](lab8/notes.md) |
+| 9 | Linux system calls with strace | [Report](lab9_report.docx) | [C program, commands and experiment notes](lab9/) |
+| 10 | Adding the xv6 trace system call | [Report](lab10_report.docx) | [Kernel changes, user program, patch and notes](lab10/) |
 
 ## Environment
 
@@ -27,5 +29,7 @@ The experiments use Ubuntu Linux in VirtualBox. The xv6 labs run the RISC-V vers
 - **Lab 6:** An xv6 metadata viewer and recursive filename search, including an optional inode display.
 - **Lab 7:** Linux C programs demonstrating `fork`, `execlp`, `waitpid`, zombies, output redirection, two-stage pipes and an optional three-stage pipeline. Separate variants demonstrate exec failure and a pipeline blocked by an open write end. [Experiment notes](lab7/report.md) explain the results.
 - **Lab 8:** Separate xv6 sources for `run`, `pingpong` and the optional `primes` program, a Makefile with their `UPROGS` entries, Observe answers, and separate `ls` and failed-exec experiment variants. [Build instructions](lab8/README.md) explain how to use them in an existing xv6 tree.
+- **Lab 9:** A Linux C program that writes and reads a file, filtered strace records, syscall counting, and explanations of standard descriptors and descriptor reuse. [Experiment notes](lab9/report.md) record the results.
+- **Lab 10:** The xv6 trace system call with per-process masks, fork inheritance, syscall names and return values. Includes modified sources, a reusable [patch](lab10/trace.patch), screenshots, and [experiment notes](lab10/report.md).
 
 The xv6 programs must be built inside an xv6 source tree: place their source files in `user/`, register the executables in the Makefile's `UPROGS` list, and run `make qemu`. The Lab 7 programs target Linux and can be compiled with GCC; they use a different user interface from the xv6 programs.
