@@ -1,0 +1,7 @@
+# Report-generation intermediates and local build files.
+/tmp/
+__pycache__/
+*.py[cod]
+*.o
+*.exe
+~$*.docx
